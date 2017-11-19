@@ -556,6 +556,11 @@ a:hover {
 	text-align: left
 }
 
+.main .content p.addr-link {
+	color: #999;
+	font-size: 12px
+}
+
 .main .content a {
 	color: #009a61;
 	text-decoration: none;
