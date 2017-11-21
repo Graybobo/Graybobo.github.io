@@ -62,12 +62,12 @@ a:hover {
 }
 
 ::-moz-selection {
-	background-color: #293846;
+	background-color: #009a61;
 	color: #fcfcfc
 }
 
 ::selection {
-	background-color: #293846;
+	background-color: #009a61;
 	color: #fcfcfc
 }
 
@@ -460,6 +460,11 @@ a:hover {
 	font-size: 18px
 }
 
+.main.archive .clip-header {
+	padding-top: 30px;
+	font-size: 18px
+}
+
 .main.archive .header .title,.main.tag .header .title {
 	margin-top: 30px;
 	margin-right: 5px;
@@ -472,6 +477,10 @@ a:hover {
 
 .main.archive .archive-list,.main.tag .archive-list {
 	margin-top: 50px
+}
+
+.main.archive .archive-clip-list {
+	margin-top: 20px
 }
 
 .main.archive .archive-list .archive-item,.main.tag .archive-list .archive-item {
@@ -794,7 +803,8 @@ a:hover {
 }
 
 .about-me a {
-	color: #a1b2b4
+	color: #a1b2b4;
+	text-decoration: underline	
 }
 
 .footer {
