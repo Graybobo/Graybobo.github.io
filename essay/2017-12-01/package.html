@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+        <meta name="x5-fullscreen" content="true">
+        <meta name="full-screen" content="yes">
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link rel="apple-itouch-icon" href="/images/favicon.ico">
+        <script type="text/javascript" src="/assets/ua.js"></script>
+        <link rel="stylesheet" href="/assets/ux.css">
+        <script type="text/javascript">
+        var timeSinceLang = {
+            year: '年前',
+            month: '个月前',
+            day: '天前',
+            hour: '小时前',
+            minute: '分钟前',
+            second: '秒前'
+        };
+        var root = '';
+        </script>
+        <meta name="keywords" content="Golang,">
+        <meta name="description" content="Golang - Package">
+        <meta name="author" content="KILLHAPPY.">
+        <title>Golang - Package</title>
+    </head>
+    <body>
+        <article class="container">
+
+            <header class="header-wrap">
+                <a class="index" href="/">
+                    <img class="logo" src="/images/avatar.png" />
+                    KILLHAPPY.
+                </a>
+                <ul class="menu">
+                    <li class="menu-item"><a href="/archive.html">ESSAYS</a></li>
+                    <li class="menu-item"><a href="/tag.html">TAGS</a></li>
+                </ul>
+            </header>
+
+            <article class="main article">
+                <h1 class="title">Golang - Package</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/avatar.png);"></span>
+                    <a class="name" href="/profile.html">KILLHAPPY.</a>
+                    
+                    <span class="date" data-time="1512060000"><span class="from"></span></span>
+                    
+                    <span class="tags"><a class="tag" href="/tag/Golang/index.html">Golang</a></span>
+                </section>
+                <article class="content">
+                    <p>Golang 使用 <code>package</code> 作为最基本的分发单位来组织源码。</p>
+
+<p>每个 Go 源码文件都会以 <code>package xxx</code> 的声明开头；同时也是定义( 声明 )一个 <code>package</code> ( 包 )。</p>
+
+<h3>包的拆分</h3>
+
+<p>Golang 中的每个 <code>package</code> 都会有一个对应的目录；</p>
+
+<p>对于一个 <code>package</code> 可以不局限于单一的文件，可以拆分由多个文件组成，组成同一个 <code>package</code> 的多个文件必须使用相同的 <code>package name</code> 并在同一级目录中。</p>
+
+<p>注：<br />
+  ▪ 组成同一个 <code>package</code> 的多个文件，编译后会合并为一个文件，因此组成同一个 <code>package</code> 的不同文件之间可以直接引用函数和变量( 不论是否导出 )，
+  同时组成包的多个文件中不能有相同的全局变量和函数( init 是一个特例 )；<br />
+  ▪ 同一级目录中只能存在一个 <code>package</code>( 即：同一级目录中多个文件的包名必须保持一致 )。</p>
+
+<h3>包级访问权限</h3>
+
+<p>包中定义的全局变量或函数，首字母小写，则表示是包级私有的，如果首字母大写，则可以在其他包中被访问到。</p>
+
+<h3>包的导入</h3>
+
+<p>Golang 提供了关键字 <code>import</code> 用来导入第三方的包和标准库的包。</p>
+
+<p>你可以通过如下两种分方式来 <code>import</code> package:</p>
+
+<pre><code>  // Way one:
+  import &quot;gopkg.in/mgo.v2&quot;
+  import &quot;time&quot;
+  
+  // Way two:
+  import (
+      &quot;gopkg.in/mgo.v2&quot;
+      &quot;time&quot;
+  )
+</code></pre>
+
+<p>注：<br />
+  ▪ 对于 Golang 的标准库包，会从 GOROOT 中去寻找并导入指定的包；<br />
+  ▪ 对于第三方包或自己编写的项目模块，你可以使用<code>相对路径</code>或<code>绝对路径</code>的方式来导入，但是实际使用中是不推荐<code>相对路径</code>的方式来导入包。</p>
+
+<h3>import 包的别名</h3>
+
+<p>有时候我们为了便于记忆或编码中一些特殊的意义考量，我们可以在导入包的时候给包取一个别名。</p>
+
+<pre><code>  import (
+      f &quot;fmt&quot;
+      t &quot;time&quot;
+  )
+
+  f.Println( t.Now() )
+</code></pre>
+
+<p>注：如果导入包时使用了别名，那么调用包函数或变量时就要使用我们指定的别名。</p>
+
+<h3>import 时的 <code>.</code> ( 点操作符 )</h3>
+
+<p>有时候我们希望在调用导入的包的函数时省略掉包名作为前缀，这时候你可以在导入包时使用 <code>.</code> 操作符来达到你的目的。</p>
+
+<pre><code>  import (
+      . &quot;fmt&quot;
+  )
+
+  Println( &quot;我省略了包名 fmt&quot; )
+</code></pre>
+
+<h3>import 时的 <code>_</code> ( 下划线操作符 )</h3>
+
+<p>有时候我们在导入一个包时，仅仅希望它的 <code>init()</code> 被调用执行，那么你可以使用 <code>_</code> 操作符来达到你的目的。</p>
+
+<pre><code>  import (
+      _ &quot;gopkg.in/xxx&quot;
+  )
+</code></pre>
+
+<p>注：使用 <code>_</code> 操作符来导入包时，无法通过包名来访问包中的函数和变量。</p>
+
+<h3>特殊的 main 包</h3>
+
+<p>包名为 <code>main</code> 的 <code>package</code> ，可以生成可执行程序，并且 <code>main</code> 包中必须包含一个名为 <code>main</code> 的函数。</p>
+
+<pre><code>  package main
+
+  import (
+      &quot;fmt&quot;
+      &quot;time&quot;
+  )
+
+  func main() {
+      fmt.Println( time.Now() )
+  }
+</code></pre>
+
+<h3>需要注意的点</h3>
+
+<p>▪ <code>import</code> 一个包但是未使用的话会编译报错；<br />
+  ▪ <code>import</code> 关键字导入包时导入的是包的路径，而不是包名，通常情况下我们会将包的路径末端目录名和包名习惯性的使用相同的命名，容易给人产生错觉，误认为路径末端目录名就是包名，但实际上这两者不是同一个东西，命名也可以不一致。</p>
+
+                    
+                    <p class="addr-link">
+                        <b>本文地址: </b>
+                        <script type="text/javascript">document.write(window.location.href);</script>
+                        ( 转载请注明出处，谢谢！ )
+                    </p>
+                    
+                </article>
+                <section class="recommend">
+                    
+                    
+                    <section class="nav next">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/essay/2017-11-19/gopath.html">Golang - GOPATH</a>
+                    </section>
+                    
+                </section>
+            </article>
+        </article>
+
+        <section class="about-me">
+            { <a href="/profile.html">ABOUT.ME</a> | <a href="/clip.html">收藏夹</a> }
+        </section>
+        <footer class="footer">
+            <span class="copyright">
+                ©
+                <script type="text/javascript">
+                    document.write(new Date().getFullYear());
+                </script>
+                KILLHAPPY.
+            </span>
+        </footer>        
+
+        <script src="/assets/ex.js"></script>
+
+    </body>
+</html>
