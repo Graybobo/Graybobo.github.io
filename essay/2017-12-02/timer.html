@@ -51,10 +51,10 @@
                 </section>
                 <article class="content">
                     <p>日前，团队小伙伴 D 同学做了 <code>Javascript 生命周期</code> 相关主题的分享。<br />
-  分享会上，小伙伴们围绕 <code>setTimeout</code>、<code>Promise</code> 及 <code>process.nextTick</code> 等内容的执行顺序展开了激烈的讨论。</p>
+  分享会上，小伙伴们围绕 <code>setTimeout</code>、<code>Promise</code> 及 <code>process.nextTick</code> 等内容展开了激烈的讨论。</p>
 
-<p>笔者发现小伙伴们忽视了 <code>setTimeout</code> 及 <code>setInterval</code> 哪些隐秘的坑，于是会上凭借着数年前的记忆对 <code>setTimeout</code> 和 <code>setInterval</code> 做了一番阐述，由于对一些内容的记忆模糊，总觉得解答的不尽人意，对不起观众。<br />
-  于是，今天抽空又去啃了 MDN 的官方文档；翻了两本大牛的 Javascript 相关书籍，来对 <code>setTimeout</code> 和 <code>setInterval</code> 那些被忽视的隐秘知识点做一个总结，同时帮助自己加深一下印象。</p>
+<p>笔者发现小伙伴们忽视了 <code>setTimeout</code> 及 <code>setInterval</code> 哪些隐秘的坑，于是会上凭借着数年前的记忆对 <code>setTimeout</code> 和 <code>setInterval</code> 做了一番阐述，由于对一些内容的印象模糊，总觉得解答的不尽人意，对不起观众。<br />
+  于是，今天抽空又去啃了 MDN Web docs；翻了两本 Javascript 相关书籍。决定对 <code>setTimeout</code> 和 <code>setInterval</code> 那些被忽视的隐秘知识点做一个总结，同时加深一下印象。</p>
 
 <h3>用途</h3>
 
@@ -70,8 +70,8 @@
   HTML5 新的标准规定 <code>setTimeout</code> 的最小时间间隔为 4ms，<code>setInterval</code> 的最小时间间隔为 10ms。</p>
 
 <p>实际应用中：<br />
-  如果参数设定的时间间隔时间小于浏览器设定的默认最小时间间隔，那么浏览器会按照默认的最小时间间隔来处理；<br />
-  如果回调的执行时间大于间隔时间，那么回调会继续执行，导致真正的时间间隔比原来设定的会大一点。</p>
+  ▪ 如果参数设定的时间间隔时间小于浏览器设定的默认最小时间间隔，那么浏览器会按照默认的最小时间间隔来处理；<br />
+  ▪ 如果回调的执行时间大于间隔时间，那么回调会继续执行，导致真正的时间间隔比原来设定的会大一点。</p>
 
 <h3>一些旧版本浏览器的优化方案</h3>
 
@@ -131,9 +131,9 @@
 
 <h3>其他的一些影响因素</h3>
 
-<p>此外，浏览器的后台模式运行，页面窗口非活动状态( 页面不处于当前浏览窗口 ) 时，浏览器会对间隔时间做一些优化调整；<br />
-  同时，对于一些移动设备操作系统为了体验优化或节能状态下时，这个间隔时间也会受到影响；<br />
-  笔记本电脑，在没有外部电流供电仅靠电池供电状态下，浏览器也会对间隔时间做一些调整。</p>
+<p>▪ 此外，浏览器的后台模式运行，页面窗口非活动状态( 页面不处于当前浏览窗口 ) 时，浏览器会对间隔时间做一些优化调整( 间隔时间会被调整到 1000ms )；<br />
+  ▪ 同时，对于一些移动设备操作系统为了体验优化或节能状态下时，这个间隔时间也会受到影响；<br />
+  ▪ 笔记本电脑，在没有外部电流供电仅靠电池供电状态下，浏览器也会对间隔时间做一些调整。</p>
 
 <h3>参考资料</h3>
 
