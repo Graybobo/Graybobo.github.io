@@ -37,12 +37,14 @@
 	font-style: normal
 }
 
-body,html,input {
+html,body,input {
 	margin: 0;
 	font-family: "Courier New", "Microsoft YaHei"
 }
 
-body,html {
+html,body {
+	margin: 0 auto;
+	padding: 0;
 	text-align: center;
 	background: #fff
 }
