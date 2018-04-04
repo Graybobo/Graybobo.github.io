@@ -1,1 +1,1 @@
-<https://Graybobo.github.io>
+<HTTPS://GRAYBOBO.GITHUB.IO/>
