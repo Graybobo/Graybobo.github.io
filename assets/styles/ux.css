@@ -355,7 +355,7 @@ a:hover {
 
 .main.article .recommend {
 	margin-top: 50px;
-	overflow: auto
+	overflow: visible
 }
 
 .main.article .recommend .nav {
@@ -668,7 +668,8 @@ a:hover {
 	opacity: .6;
 	transition: opacity .3s ease-in;
 	cursor: pointer;
-	border-radius: 5px
+	border-radius: 5px;
+	border: none
 }
 
 .main .content .image-alt {
