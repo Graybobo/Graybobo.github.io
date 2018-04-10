@@ -60,19 +60,19 @@
 
 <p>GOPATH 为一个路径，支持多个，因此也可以说 GOPATH 是一个路径列表。</p>
 
+<p>GOPATH 默认保持和 GOROOT 一致的值，从 Go 1.1 版本开始，必须修改为其它路径。</p>
+
 <p>当有多个 GOPATH 路径时，需要用分隔符分隔不同的路径：</p>
 
 <ul>
-<li>Windows 分隔符为 <code>;</code>
-<br /></li>
+<li>Windows 分隔符为 <code>;</code></li>
 </ul>
 
 <pre><code>  GOPATH=X:\Go\A;X:\Go\B
 </code></pre>
 
 <ul>
-<li>类 Unix 系统和 Mac 为 <code>:</code>
-<br /></li>
+<li>类 Unix 系统和 Mac 为 <code>:</code></li>
 </ul>
 
 <pre><code>  export GOPATH=$HOME/Go/A:$HOME/Go/B
