@@ -63,6 +63,10 @@ a:hover {
 	opacity: .9;
 }
 
+a:focus {
+	outline: none;
+}
+
 ::-moz-selection {
 	background-color: #009a61;
 	color: #fcfcfc;
@@ -781,6 +785,10 @@ a:hover {
 	font-weight: 400;
 }
 
+.main .site .subtitle a {
+	color: #a1b2b4;
+}
+
 .main.about .info {
 	margin-top: 80px;
 	text-align: center;
@@ -833,13 +841,4 @@ a:hover {
 
 .footer .copyright {
 	color: #a1b2b4;
-}
-
-.footer .publish {
-	float: right;
-}
-
-.footer .publish a {
-	color: #a1b2b4;
-	text-decoration: none;
 }
