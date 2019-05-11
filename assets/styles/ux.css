@@ -801,7 +801,7 @@ a:focus {
 	text-align: left;
 }
 
-.about-me {
+.elegant {
 	margin: 0 auto;
 	padding: 10px;
 	width: 100%;
@@ -812,7 +812,7 @@ a:focus {
 	box-sizing: border-box;
 }
 
-.about-me a {
+.elegant a {
 	color: #a1b2b4;
 	text-decoration: underline;
 }
